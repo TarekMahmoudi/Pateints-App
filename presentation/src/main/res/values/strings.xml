@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">patientproject</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="address">address</string>
+    <string name="birthdate">birthdate</string>
+    <string name="gender">gender</string>
+    <string name="mobile">mobile</string>
+</resources>
