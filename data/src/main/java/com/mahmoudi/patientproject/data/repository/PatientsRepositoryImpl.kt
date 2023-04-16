@@ -3,6 +3,7 @@ package com.mahmoudi.patientproject.data.repository
 import com.mahmoudi.patientproject.data.datasource.PatientsDataSource
 import com.mahmoudi.patientproject.domain.model.AddPatientRemoteModel
 import com.mahmoudi.patientproject.domain.model.BodyAddPatientModel
+import com.mahmoudi.patientproject.domain.model.delete.PatientDeleteResponseModel
 import com.mahmoudi.patientproject.domain.model.patient.PatientRemoteModule
 import com.mahmoudi.patientproject.domain.repository.patients.PatientsRepository
 import javax.inject.Inject
@@ -16,5 +17,13 @@ class PatientsRepositoryImpl @Inject constructor(private val patientsDataSource 
 
     override suspend fun addPatients(bodyAddPatientModel: BodyAddPatientModel): AddPatientRemoteModel {
         return patientsDataSource.addPatient(bodyAddPatientModel)
+    }
+
+    override suspend fun deletePatients(id: String): PatientDeleteResponseModel {
+        return patientsDataSource.deletePatient(id)
+    }
+
+    override suspend fun getPatientById(id: String): PatientRemoteModule {
+        return patientsDataSource.getPatientById(id).data
     }
 }

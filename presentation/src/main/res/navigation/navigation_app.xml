@@ -12,4 +12,9 @@
         android:id="@+id/addPatientsFragment"
         android:name="com.mahmoudi.patientproject.presentation.features.add.AddPatientFragment"
         android:label="Add Patient Fragment"/>
+
+    <fragment
+        android:id="@+id/detailsPatientFragment"
+        android:name="com.mahmoudi.patientproject.presentation.features.details.DetailsPatientFragment"
+        android:label="Details Patient Fragment"/>
 </navigation>

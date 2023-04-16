@@ -10,7 +10,10 @@ import com.mahmoudi.patientproject.domain.model.AddPatientRemoteModel
 import com.mahmoudi.patientproject.domain.model.patient.PatientRemoteModule
 import com.mahmoudi.patientproject.presentation.databinding.RowPatientBinding
 
-class PatientsAdapter : ListAdapter<PatientRemoteModule, PatientsAdapter.PatientsViewHolder>(DiffCallback){
+class PatientsAdapter(
+    private val onDeletePatient :(id:String)->Unit ,
+    private val onClickItem: (id : String) ->Unit
+) : ListAdapter<PatientRemoteModule, PatientsAdapter.PatientsViewHolder>(DiffCallback){
 
 
     var indexLastSelected = -1
@@ -48,9 +51,14 @@ class PatientsAdapter : ListAdapter<PatientRemoteModule, PatientsAdapter.Patient
                     getItem(position).selected = true
                     notifyItemChanged(position)
                 }
+                onClickItem(model.id)
+            }
+            binding.iconDelete.setOnClickListener{
+                onDeletePatient(model.id)
             }
 
         }
+
     }
     private object DiffCallback : DiffUtil.ItemCallback<PatientRemoteModule>() {
 
