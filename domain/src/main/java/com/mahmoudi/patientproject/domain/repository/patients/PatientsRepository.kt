@@ -2,6 +2,7 @@ package com.mahmoudi.patientproject.domain.repository.patients
 
 import com.mahmoudi.patientproject.domain.model.AddPatientRemoteModel
 import com.mahmoudi.patientproject.domain.model.BodyAddPatientModel
+import com.mahmoudi.patientproject.domain.model.delete.PatientDeleteResponseModel
 import com.mahmoudi.patientproject.domain.model.patient.PatientRemoteModule
 import dagger.Provides
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,5 +16,10 @@ interface PatientsRepository  {
     suspend fun getPatients(): List<PatientRemoteModule>
 
     suspend fun addPatients(bodyAddPatientModel: BodyAddPatientModel):AddPatientRemoteModel
+
+    suspend fun deletePatients(id :String): PatientDeleteResponseModel
+
+    suspend fun getPatientById(id :String): PatientRemoteModule
+
 
 }
